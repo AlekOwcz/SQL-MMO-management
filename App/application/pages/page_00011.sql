@@ -1,0 +1,371 @@
+prompt --application/pages/page_00011
+begin
+--   Manifest
+--     PAGE: 00011
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>26579477600960056
+,p_default_application_id=>124
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_PROJ148172148073'
+);
+wwv_flow_api.create_page(
+ p_id=>11
+,p_user_interface_id=>wwv_flow_api.id(39802336098165641)
+,p_name=>'House'
+,p_alias=>'HOUSE'
+,p_page_mode=>'MODAL'
+,p_step_title=>'House'
+,p_autocomplete_on_off=>'OFF'
+,p_javascript_code=>'var htmldb_delete_message=''"DELETE_CONFIRM_MSG"'';'
+,p_page_template_options=>'#DEFAULT#'
+,p_dialog_chained=>'N'
+,p_protection_level=>'C'
+,p_last_updated_by=>'ALEKSANDER.OWCZARCZAK@STUDENT.PUT.POZNAN.PL'
+,p_last_upd_yyyymmddhh24miss=>'20230125033002'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(39900283371165886)
+,p_plug_name=>'House'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_api.id(39681787901165582)
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'BODY'
+,p_query_type=>'TABLE'
+,p_query_table=>'HOUSE'
+,p_include_rowid_column=>false
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_plug_source_type=>'NATIVE_FORM'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(39906281105165890)
+,p_plug_name=>'Buttons'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_api.id(39682715964165583)
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'REGION_POSITION_03'
+,p_attribute_01=>'N'
+,p_attribute_02=>'TEXT'
+,p_attribute_03=>'Y'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(39906614354165890)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_api.id(39906281105165890)
+,p_button_name=>'CANCEL'
+,p_button_action=>'DEFINED_BY_DA'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(39777811072165628)
+,p_button_image_alt=>'Cancel'
+,p_button_position=>'REGION_TEMPLATE_CLOSE'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(39908208609165891)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_api.id(39906281105165890)
+,p_button_name=>'DELETE'
+,p_button_action=>'REDIRECT_URL'
+,p_button_template_options=>'#DEFAULT#:t-Button--danger:t-Button--simple'
+,p_button_template_id=>wwv_flow_api.id(39777811072165628)
+,p_button_image_alt=>'Delete'
+,p_button_position=>'REGION_TEMPLATE_DELETE'
+,p_button_redirect_url=>'javascript:apex.confirm(htmldb_delete_message,''DELETE'');'
+,p_button_execute_validations=>'N'
+,p_button_condition=>'P11_LOCATION'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'DELETE'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(39908608159165891)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_api.id(39906281105165890)
+,p_button_name=>'SAVE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(39777811072165628)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Apply Changes'
+,p_button_position=>'REGION_TEMPLATE_NEXT'
+,p_button_condition=>'P11_LOCATION'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'UPDATE'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(39909028204165892)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_api.id(39906281105165890)
+,p_button_name=>'CREATE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(39777811072165628)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create'
+,p_button_position=>'REGION_TEMPLATE_NEXT'
+,p_button_condition=>'P11_LOCATION'
+,p_button_condition_type=>'ITEM_IS_NULL'
+,p_database_action=>'INSERT'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(39900642380165886)
+,p_name=>'P11_LOCATION'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_item_source_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Location'
+,p_source=>'LOCATION'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_api.id(39775135364165627)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_03=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(39901065761165886)
+,p_name=>'P11_SERVER'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_is_primary_key=>true
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_item_source_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_prompt=>'Server'
+,p_source=>'SERVER'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>'SELECT CONTINENT D, CONTINENT R FROM MEGASERVER;'
+,p_cHeight=>1
+,p_field_template=>wwv_flow_api.id(39775135364165627)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_protection_level=>'S'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(39901474034165887)
+,p_name=>'P11_ORIG_PRICE'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_item_source_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_prompt=>'Orig Price'
+,p_source=>'ORIG_PRICE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_field_template=>wwv_flow_api.id(39775135364165627)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'0'
+,p_attribute_02=>'999999'
+,p_attribute_03=>'left'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(39901840128165887)
+,p_name=>'P11_CURR_PRICE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_item_source_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_prompt=>'Curr Price'
+,p_source=>'CURR_PRICE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_field_template=>wwv_flow_api.id(39775021498165627)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'0'
+,p_attribute_02=>'999999'
+,p_attribute_03=>'left'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(39902256282165887)
+,p_name=>'P11_NUM_OF_ROOMS'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_item_source_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_prompt=>'Num of Rooms'
+,p_source=>'NUM_OF_ROOMS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_field_template=>wwv_flow_api.id(39775135364165627)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'1'
+,p_attribute_02=>'999'
+,p_attribute_03=>'left'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(39902650040165887)
+,p_name=>'P11_NUM_OF_FLOORS'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_item_source_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_prompt=>'Num of Floors'
+,p_source=>'NUM_OF_FLOORS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_field_template=>wwv_flow_api.id(39775135364165627)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'1'
+,p_attribute_02=>'99'
+,p_attribute_03=>'left'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(39903016361165888)
+,p_name=>'P11_HOUSE_SIZE'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_item_source_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_prompt=>'House Size'
+,p_source=>'HOUSE_SIZE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_field_template=>wwv_flow_api.id(39775135364165627)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'1'
+,p_attribute_02=>'999'
+,p_attribute_03=>'left'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(39903429415165888)
+,p_name=>'P11_OWNER'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_item_source_plug_id=>wwv_flow_api.id(39900283371165886)
+,p_prompt=>'Owner'
+,p_source=>'OWNER'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'USERNAMES'
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_field_template=>wwv_flow_api.id(39775021498165627)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'YES'
+,p_attribute_01=>'NONE'
+,p_attribute_02=>'N'
+);
+wwv_flow_api.create_page_validation(
+ p_id=>wwv_flow_api.id(43788488390083140)
+,p_validation_name=>'PK Location Server'
+,p_validation_sequence=>10
+,p_validation=>'NOT EXISTS (SELECT LOCATION FROM HOUSE WHERE LOCATION = :P11_LOCATION AND SERVER=:P11_SERVER);'
+,p_validation2=>'SQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>'A house at this location already exists on chosen server!'
+,p_when_button_pressed=>wwv_flow_api.id(39909028204165892)
+,p_associated_item=>wwv_flow_api.id(39900642380165886)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_api.create_page_validation(
+ p_id=>wwv_flow_api.id(43788594399083141)
+,p_validation_name=>'On sale with owner'
+,p_validation_sequence=>20
+,p_validation=>':P11_OWNER IS NOT NULL OR :P11_CURR_PRICE IS NULL;'
+,p_validation2=>'SQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>'A house without an owner can''t have current price as it had never been slod before!'
+,p_associated_item=>wwv_flow_api.id(39901840128165887)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_api.create_page_validation(
+ p_id=>wwv_flow_api.id(42984188770070008)
+,p_validation_name=>'Edit'
+,p_validation_sequence=>30
+,p_validation=>'EXISTS(SELECT * FROM House WHERE LOCATION = :P11_LOCATION AND SERVER = :P11_SERVER);'
+,p_validation2=>'SQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>'Location and server uniquely identify a house and thus should not be changed!'
+,p_when_button_pressed=>wwv_flow_api.id(39908608159165891)
+,p_associated_item=>wwv_flow_api.id(39900642380165886)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(39906751348165890)
+,p_name=>'Cancel Dialog'
+,p_event_sequence=>10
+,p_triggering_element_type=>'BUTTON'
+,p_triggering_button_id=>wwv_flow_api.id(39906614354165890)
+,p_bind_type=>'bind'
+,p_bind_event_type=>'click'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(39907541073165891)
+,p_event_id=>wwv_flow_api.id(39906751348165890)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_DIALOG_CANCEL'
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(39909848821165892)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_api.id(39900283371165886)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Process form House'
+,p_attribute_01=>'REGION_SOURCE'
+,p_attribute_05=>'Y'
+,p_attribute_06=>'Y'
+,p_attribute_08=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(39910230962165892)
+,p_process_sequence=>50
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_CLOSE_WINDOW'
+,p_process_name=>'Close Dialog'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>'CREATE,SAVE,DELETE'
+,p_process_when_type=>'REQUEST_IN_CONDITION'
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(39909491209165892)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_api.id(39900283371165886)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form House'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+);
+wwv_flow_api.component_end;
+end;
+/
