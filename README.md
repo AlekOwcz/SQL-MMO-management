@@ -3,6 +3,7 @@ You can test the app at https://admlab2.cs.put.poznan.pl/ords/apexpdb/proj_14817
 
 User login:
 TestUser
+
 Password:
 SDB2proj
 
